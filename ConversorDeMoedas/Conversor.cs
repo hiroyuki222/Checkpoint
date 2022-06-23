@@ -5,15 +5,10 @@ namespace ConversorDeMoedas;
 /// </summary>
 internal static class Conversor
 {
-    private const decimal _realToDolar = 4.5M;
-    private const decimal _realToEuro = 6.2M;
-    private const decimal _realToIene = 0.052M;
-    private const decimal _realToLibra = 6.95M;
-
-    private const decimal _dolarToReal = 1M / _realToDolar;
-    private const decimal _euroToReal = 1M / _realToEuro;
-    private const decimal _ieneToReal = 1M / _realToIene;
-    private const decimal _libraToReal = 1M / _realToLibra;
+    private const decimal _dolarRatio = 1M / 4.5M;
+    private const decimal _euroRatio = 1M / 6.2M;
+    private const decimal _ieneRatio = 1M / 0.052M;
+    private const decimal _libraRatio = 1M / 6.95M;
 
     /// <summary>
     /// Converte valor de moeda estrangeira para Real.
@@ -27,10 +22,10 @@ internal static class Conversor
         return moeda switch
         {
             Moeda.Real => valorMoedaEstrangeira,
-            Moeda.Dolar => valorMoedaEstrangeira * _dolarToReal,
-            Moeda.Euro => valorMoedaEstrangeira * _euroToReal,
-            Moeda.Iene => valorMoedaEstrangeira * _ieneToReal,
-            Moeda.Libra => valorMoedaEstrangeira * _libraToReal,
+            Moeda.Dolar => valorMoedaEstrangeira * _dolarRatio,
+            Moeda.Euro => valorMoedaEstrangeira * _euroRatio,
+            Moeda.Iene => valorMoedaEstrangeira * _ieneRatio,
+            Moeda.Libra => valorMoedaEstrangeira * _libraRatio,
             _ => throw new NotImplementedException($"Moeda do tipo {moeda} não foi implementada.")
         };
     }
@@ -47,10 +42,10 @@ internal static class Conversor
         return moeda switch
         {
             Moeda.Real => valorEmReal,
-            Moeda.Dolar => valorEmReal * _realToDolar,
-            Moeda.Euro => valorEmReal * _realToEuro,
-            Moeda.Iene => valorEmReal * _realToIene,
-            Moeda.Libra => valorEmReal * _realToLibra,
+            Moeda.Dolar => valorEmReal / _dolarRatio,
+            Moeda.Euro => valorEmReal / _euroRatio,
+            Moeda.Iene => valorEmReal / _ieneRatio,
+            Moeda.Libra => valorEmReal / _libraRatio,
             _ => throw new NotImplementedException($"Moeda do tipo {moeda} não foi implementada.")
         };
     }
