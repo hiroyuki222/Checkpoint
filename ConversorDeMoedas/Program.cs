@@ -6,6 +6,6 @@ internal class Program
     {
         var valor = 10;
 
-        Console.WriteLine(Conversor.ToMoeda(Moedas.Dolar, valor));
+        Console.WriteLine(Conversor.ToMoeda(Moeda.Dolar, valor));
     }
 }
