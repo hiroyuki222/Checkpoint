@@ -7,13 +7,20 @@ internal static class Menu
 
     public static int MenuDeMoedas()
     {
+        var tipoDeMoeda = 0;
         Console.WriteLine(
                 "1 - Real\n" +
                 "2 - Dolar\n" +
                 "3 - Euro\n" +
                 "4 - Iene\n" +
                 "5 - Libra");
-        return int.Parse(Console.ReadLine());
+        tipoDeMoeda = int.Parse(Console.ReadLine());
+        while (tipoDeMoeda <= 0 || tipoDeMoeda > 5)
+        {
+            Console.WriteLine("Digite um valor válido");
+            tipoDeMoeda = MenuDeMoedas();
+        }
+            return tipoDeMoeda;
     }
    
     public static void CasosDeConversao(int moedaUtilizada, int moedaParaQualConvertera, decimal valor)
