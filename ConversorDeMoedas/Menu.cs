@@ -24,29 +24,29 @@ internal static class Menu
         }
         else
         {
-            Console.WriteLine(Conversor.ToMoeda(TipoDeMoeda(moedaUtilizada), Conversor.ToReal(Moedas.Real,valor)));
+            Console.WriteLine(Conversor.ToMoeda(TipoDeMoeda(moedaParaQualConvertera), Conversor.ToReal(TipoDeMoeda(moedaUtilizada),valor)));
         }
         
     }
     //<summary>
     //Retorna o tipo da moeda
     //<summary>
-    public static Moedas TipoDeMoeda(int moedaUtilizada)
+    public static Moeda TipoDeMoeda(int moedaUtilizada)
     {
         if(moedaUtilizada == 1)
         {
-            return Moedas.Real;
+            return Moeda.Real;
         }else if(moedaUtilizada == 2)
         {
-            return Moedas.Dolar;
+            return Moeda.Dolar;
         }else if(moedaUtilizada == 3)
         {
-            return Moedas.Euro;
+            return Moeda.Euro;
         }else if(moedaUtilizada == 4)
         {
-            return Moedas.Iene;
+            return Moeda.Iene;
         }else {
-            return Moedas.Libra;
+            return Moeda.Libra;
         } 
     }
     public static void Inicializar()

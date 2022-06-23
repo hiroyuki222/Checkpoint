@@ -6,9 +6,7 @@ internal class Program
 {
     private static void Main()
     {
-<<<<<<< HEAD
-        Menu.Inicializar();
-=======
+
 
         var dolar = 4.50;
         var euro = 6.20;
@@ -26,11 +24,10 @@ internal class Program
         // C4 exibe a moeda até 4 digitos
         Console.WriteLine("Reino Unido em Reais " + libra.ToString("C2", CultureInfo.CurrentCulture));
 
-        var valor = 10;
 
-        Console.WriteLine(Conversor.ToMoeda(Moeda.Dolar, valor));
 
->>>>>>> 369177b6b4efea5af8d4e282fc12322e8b69001c
+        Menu.Inicializar();
+
     }
 
 }
