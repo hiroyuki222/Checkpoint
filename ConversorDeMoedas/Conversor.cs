@@ -19,15 +19,17 @@ internal static class Conversor
     /// <exception cref="NotImplementedException">Ocorre quando moeda não possui implementação</exception>
     public static decimal ToReal(Moeda moeda, decimal valorMoedaEstrangeira)
     {
-        return moeda switch
+        var result = moeda switch
         {
             Moeda.Real => valorMoedaEstrangeira,
-            Moeda.Dolar => valorMoedaEstrangeira * _dolarRatio,
-            Moeda.Euro => valorMoedaEstrangeira * _euroRatio,
-            Moeda.Iene => valorMoedaEstrangeira * _ieneRatio,
-            Moeda.Libra => valorMoedaEstrangeira * _libraRatio,
+            Moeda.Dolar => valorMoedaEstrangeira / _dolarRatio,
+            Moeda.Euro => valorMoedaEstrangeira / _euroRatio,
+            Moeda.Iene => valorMoedaEstrangeira / _ieneRatio,
+            Moeda.Libra => valorMoedaEstrangeira / _libraRatio,
             _ => throw new NotImplementedException($"Moeda do tipo {moeda} não foi implementada.")
         };
+
+        return Math.Round(result, 2);
     }
 
     /// <summary>
@@ -39,14 +41,16 @@ internal static class Conversor
     /// <exception cref="NotImplementedException">Ocorre quando moeda não possui implementação</exception>
     public static decimal ToMoeda(Moeda moeda, decimal valorEmReal)
     {
-        return moeda switch
+        var result = moeda switch
         {
             Moeda.Real => valorEmReal,
-            Moeda.Dolar => valorEmReal / _dolarRatio,
-            Moeda.Euro => valorEmReal / _euroRatio,
-            Moeda.Iene => valorEmReal / _ieneRatio,
-            Moeda.Libra => valorEmReal / _libraRatio,
+            Moeda.Dolar => valorEmReal * _dolarRatio,
+            Moeda.Euro => valorEmReal * _euroRatio,
+            Moeda.Iene => valorEmReal * _ieneRatio,
+            Moeda.Libra => valorEmReal * _libraRatio,
             _ => throw new NotImplementedException($"Moeda do tipo {moeda} não foi implementada.")
         };
+
+        return Math.Round(result, 2);
     }
 }
