@@ -1,4 +1,4 @@
-﻿namespace ConversorDeMoedas;
+namespace ConversorDeMoedas;
 
 internal static class Conversor
 {
