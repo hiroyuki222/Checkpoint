@@ -421,7 +421,8 @@ dotnet_naming_style.lower_camel_case_style.required_prefix = _
 dotnet_naming_style.lower_camel_case_style_1.capitalization = camel_case
 
 dotnet_naming_style.t_upper_camel_case_style.capitalization = pascal_case
-dotnet_naming_style.t_upper_camel_case_style.required_prefix = T
+dotnet_code_quality.CA1715.exclude_single_letter_type_parameters = true
+#dotnet_naming_style.t_upper_camel_case_style.required_prefix = T
 
 dotnet_naming_style.upper_camel_case_style.capitalization = pascal_case
 
@@ -483,9 +484,6 @@ dotnet_naming_symbols.type_parameters_symbols.applicable_kinds = type_parameter
 
 
 #### Visual Studio Specific Rules ####
-
-# CA1822: Mark members as static
-dotnet_diagnostic.CA1822.severity = none
 
 # IDE0004: Cast is redundant
 dotnet_diagnostic.IDE0004.severity = error
