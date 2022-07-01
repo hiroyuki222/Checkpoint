@@ -29,7 +29,7 @@ internal static class Conversor
             _ => throw new NotImplementedException($"Moeda do tipo {moeda} não foi implementada.")
         };
 
-        return Math.Round(result, 2);
+        return result;
     }
 
     /// <summary>
@@ -51,6 +51,6 @@ internal static class Conversor
             _ => throw new NotImplementedException($"Moeda do tipo {moeda} não foi implementada.")
         };
 
-        return Math.Round(result, 2);
+        return result;
     }
 }

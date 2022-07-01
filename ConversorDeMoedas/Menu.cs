@@ -30,11 +30,11 @@ internal static class Menu
     {
         if (moedaParaQualConvertera == 1)
         {
-            Console.WriteLine($"O valor convertido é {Conversor.ToReal((Moeda)moedaUtilizada, valor)}");
+            Console.WriteLine($"O valor convertido é {Math.Round(Conversor.ToReal((Moeda)moedaUtilizada, valor),2)} em Reais");
         }
         else
         {
-            Console.WriteLine(Conversor.ToMoeda((Moeda)moedaParaQualConvertera, Conversor.ToReal(((Moeda)moedaUtilizada), valor)));
+            Console.WriteLine($"O valor convertido é {Math.Round(Conversor.ToMoeda((Moeda)moedaParaQualConvertera, Conversor.ToReal(((Moeda)moedaUtilizada), valor)),2)} em {(Moeda)moedaParaQualConvertera}");
         }
 
     }
