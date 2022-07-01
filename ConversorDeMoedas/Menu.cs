@@ -15,12 +15,14 @@ internal static class Menu
                 "4 - Iene\n" +
                 "5 - Libra");
         //Permite que o usuário digite outros caracteres inválidos e retorne o menu para continuar
+        Console.Write(">");
         var sucesso = int.TryParse(Console.ReadLine(), out tipoDeMoeda);
         while (tipoDeMoeda <= 0 || tipoDeMoeda > 5)
         {
             Console.WriteLine("Digite um valor válido");
             tipoDeMoeda = MenuDeMoedas();
         }
+        Console.WriteLine("Você selecionou: " + (Moeda)tipoDeMoeda);
         return tipoDeMoeda;
     }
 
@@ -28,40 +30,15 @@ internal static class Menu
     {
         if (moedaParaQualConvertera == 1)
         {
-            Console.WriteLine($"O valor convertido é {Conversor.ToReal(TipoDeMoeda(moedaUtilizada), valor)}");
+            Console.WriteLine($"O valor convertido é {Conversor.ToReal((Moeda)moedaUtilizada, valor)}");
         }
         else
         {
-            Console.WriteLine(Conversor.ToMoeda(TipoDeMoeda(moedaParaQualConvertera), Conversor.ToReal(TipoDeMoeda(moedaUtilizada), valor)));
+            Console.WriteLine(Conversor.ToMoeda((Moeda)moedaParaQualConvertera, Conversor.ToReal(((Moeda)moedaUtilizada), valor)));
         }
 
     }
-    //<summary>
-    //Retorna o tipo da moeda
-    //<summary>
-    public static Moeda TipoDeMoeda(int moedaUtilizada)
-    {
-        if (moedaUtilizada == 1)
-        {
-            return Moeda.Real;
-        }
-        else if (moedaUtilizada == 2)
-        {
-            return Moeda.Dolar;
-        }
-        else if (moedaUtilizada == 3)
-        {
-            return Moeda.Euro;
-        }
-        else if (moedaUtilizada == 4)
-        {
-            return Moeda.Iene;
-        }
-        else
-        {
-            return Moeda.Libra;
-        }
-    }
+    
     public static void Inicializar()
     {
         Console.WriteLine("Qual moeda você utilizará");
